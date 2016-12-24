@@ -2,6 +2,16 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
+  # Use a different logger for distributed setups.
+   # require 'syslog/logger'
+   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+
+   if ENV["RAILS_LOG_TO_STDOUT"].present?
+     logger           = ActiveSupport::Logger.new(STDOUT)
+     logger.formatter = config.log_formatter
+     config.logger = ActiveSupport::TaggedLogging.new(logger)
+   end
+
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -79,14 +89,10 @@ Rails.application.configure do
 
   ActionMailer::Base.smtp_settings =  {
     address:              'smtp.sendgrid.net',
-    domain:               'rubysnack.com',
+    domain:               'taperfy.com',
     user_name:            ENV["EMAILUSERNAME"],
     password:             ENV["EMAILPASSWORD"],
     port:                 587,
     authentication:       :plain,
     enable_starttls_auto: true  }
-
-  config.middleware.insert_before(::Rack::Runtime, "::Rack::Auth::Basic", "Staging") do |u, p|
-    u == ENV["STAGING_USERNAME"] && p == ENV["STAGING_PASSWORD"]
-  end   
 end
