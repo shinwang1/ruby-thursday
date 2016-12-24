@@ -89,7 +89,7 @@ Rails.application.configure do
 
   ActionMailer::Base.smtp_settings =  {
     address:              'smtp.sendgrid.net',
-    domain:               'rubysnack.com',
+    domain:               'taperfy.com',
     user_name:            ENV["EMAILUSERNAME"],
     password:             ENV["EMAILPASSWORD"],
     port:                 587,
