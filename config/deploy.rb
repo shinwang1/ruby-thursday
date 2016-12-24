@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'ruby_thursday'
-set :repo_url, 'git@github.com:melissawahnish/ruby-thursday.git'
+set :repo_url, 'git@github.com:shinwang1/ruby-thursday.git'
 
 set :user, "deploy"
 set :stages, %w(production staging)
