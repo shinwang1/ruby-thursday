@@ -258,7 +258,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
-  capistrano (~> 3.4.0)
+  capistrano (~> 3.4.1)
   capistrano-figaro-yml (~> 1.0.2)
   capistrano-passenger
   capistrano-rails (~> 1.1)
